@@ -14,7 +14,7 @@
     left:0;
     width: 344px;
     height: 100px;
-    background-image: asset-url('logo.png');
+    background-image: url('logo.png');
     color: #ffc740;
   }
 
@@ -62,11 +62,11 @@
 
   .tweetList li.sad{
     background-position: -6% bottom;
-    background-image: asset-url('face_sad.png');
+    background-image: url('face_sad.png');
   }
   .tweetList li.happy{
     background-position: 106% bottom;
-    background-image: asset-url('face_happy.png');
+    background-image: url('face_happy.png');
   }
   .tweetList li p{
     padding: 8px;
