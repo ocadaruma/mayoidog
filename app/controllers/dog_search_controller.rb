@@ -36,6 +36,9 @@ class DogSearchController < ApplicationController
         tweet = Tweet.new
         tweet.user = status.from_user
         tweet.tweet = status.text
+        tweet.time = status.created_at.to_s.slice(0..18)
+        tweet.image_url = status.profile_image_url
+        
         
         already_register = false;
         new_keyword = tweet.tweet.slice(0..10);
@@ -47,7 +50,7 @@ class DogSearchController < ApplicationController
         end
         
         if already_register
-          break;
+          next
         else
           @already_keyword.push(new_keyword)
         end
@@ -57,7 +60,7 @@ class DogSearchController < ApplicationController
           tweet.longitude = status.geo.coorginate[1] # 経度
         end
 
-        @tweets.push(tweet)
+        @tweets.unshift(tweet)
 
         # 取得したTweet idをsince_idに格納
         # ※古いものから新しい順(Tweet IDの昇順)に表示されるため、

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140308071844) do
+ActiveRecord::Schema.define(version: 20140308080630) do
 
   create_table "tweets", force: true do |t|
     t.string   "user"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20140308071844) do
     t.datetime "updated_at"
     t.string   "latitude"
     t.string   "longitude"
+    t.string   "time"
+    t.string   "image_url"
   end
 
 end

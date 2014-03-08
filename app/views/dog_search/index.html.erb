@@ -3,8 +3,10 @@
 <table>
   <thead>
     <tr>
+      <th></th>
       <th>User</th>
-      <th>tweet</th>
+      <th>Tweet</th>
+      <th>Time</th>
       <th>Map</th>
     </tr>
   </thead>
@@ -12,8 +14,10 @@
   <tbody>
     <% @tweets.each do |tweet| %>
       <tr>
+        <td><img src="<%= tweet.image_url %>" /><td>
         <td><%= tweet.user %></td>
         <td><%= tweet.tweet %></td>
+        <td><%= tweet.time %></td>
         <% if tweet.latitude.nil? %>
           <td></td>
         <% else %>
