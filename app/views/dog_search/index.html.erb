@@ -5,6 +5,7 @@
     <tr>
       <th>User</th>
       <th>tweet</th>
+      <th>Map</th>
     </tr>
   </thead>
 
@@ -13,6 +14,11 @@
       <tr>
         <td><%= tweet.user %></td>
         <td><%= tweet.tweet %></td>
+        <% if tweet.latitude.nil? %>
+          <td></td>
+        <% else %>
+          <td><a href="https://maps.google.com/maps?q=<%= tweet.latitude %>,<%= tweet.longitude %>">Map</td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

@@ -35,6 +35,11 @@ class DogSearchController < ApplicationController
       tweet.user = status.from_user
       tweet.tweet = status.text
       
+      unless status.geo.nil?
+        tweet.latitude = status.geo.coordinate[0] # 緯度
+        tweet.longitude = status.geo.coorginate[1] # 経度
+      end
+      
       @tweets.push(tweet)
       
       # 取得したTweet idをsince_idに格納
