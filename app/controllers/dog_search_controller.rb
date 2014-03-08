@@ -28,7 +28,7 @@ class DogSearchController < ApplicationController
     begin
       # 引数で受け取ったワードを元に、検索結果を取得し、古いものから順に並び替え
       # ※最初はsince_id=0であるため、tweet ID 0以降のTweetから最新のもの上位100件を取得
-      @client.search("迷い犬", :count => 100, :result_type => "recent", :since_id => since_id).results.reverse.map do |status|
+      @client.search("迷い犬 OR 迷子犬 OR 迷い猫 OR 迷子猫", :count => 100, :result_type => "recent", :since_id => since_id).results.reverse.map do |status|
 
         # Tweet ID, ユーザ名、Tweet本文、投稿日を1件づつ表示
         #{status.id} :#{status.from_user}: #{status.text} : #{status.created_at}
