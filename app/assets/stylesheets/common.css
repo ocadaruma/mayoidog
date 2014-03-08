@@ -3,6 +3,7 @@
     margin: 0 auto;
     width:800px;
     box-shadow: 5px 0px 5px rgba(0,0,0,.6), -5px 0px 5px rgba(0,0,0,.6);
+    background-image: url(img/bg_cat.jpg);
   }
 
   header{
