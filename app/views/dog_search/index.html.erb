@@ -17,12 +17,11 @@
         <% @tweets.each do |tweet| %>
           <li>
             <article>
-            <h1 style="background-image:url('https://pbs.twimg.com/profile_images/1399567200/main_icon_normal.jpg');">
-                <!-- 名前 -->
-                <span class="day"><!-- 時間 --></span>
+            <h1 style="background-image:url('<%= tweet.image_url %>');">
+                <!-- 名前 --><%= tweet.user %>
+                <span class="day"><!-- 時間 --><%= tweet.time %></span>
               </h1>
             <p class="tweet"><%= tweet.tweet %></p>
-            <p class="day"><!-- 2014年 12月 31日 00:00 --></p>
             </article>
           </li>
         <% end %>
