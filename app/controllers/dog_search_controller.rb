@@ -22,32 +22,49 @@ class DogSearchController < ApplicationController
     counter = 0
 
     @tweets = Array.new
-
+    @already_keyword = Array.new
+    
+    
     begin
       # 引数で受け取ったワードを元に、検索結果を取得し、古いものから順に並び替え
       # ※最初はsince_id=0であるため、tweet ID 0以降のTweetから最新のもの上位100件を取得
       @client.search("迷い犬", :count => 100, :result_type => "recent", :since_id => since_id).results.reverse.map do |status|
 
-      # Tweet ID, ユーザ名、Tweet本文、投稿日を1件づつ表示
-      #{status.id} :#{status.from_user}: #{status.text} : #{status.created_at}
+        # Tweet ID, ユーザ名、Tweet本文、投稿日を1件づつ表示
+        #{status.id} :#{status.from_user}: #{status.text} : #{status.created_at}
 
-      tweet = Tweet.new
-      tweet.user = status.from_user
-      tweet.tweet = status.text
+        tweet = Tweet.new
+        tweet.user = status.from_user
+        tweet.tweet = status.text
+        
+        already_register = false;
+        new_keyword = tweet.tweet.slice(0..10);
+        @already_keyword.each do |keyword|
+          if keyword == new_keyword
+            already_register = true
+            break
+          end
+        end
+        
+        if already_register
+          break;
+        else
+          @already_keyword.push(new_keyword)
+        end
 
-      unless status.geo.nil?
-        tweet.latitude = status.geo.coordinate[0] # 緯度
-        tweet.longitude = status.geo.coorginate[1] # 経度
+        unless status.geo.nil?
+          tweet.latitude = status.geo.coordinate[0] # 緯度
+          tweet.longitude = status.geo.coorginate[1] # 経度
+        end
+
+        @tweets.push(tweet)
+
+        # 取得したTweet idをsince_idに格納
+        # ※古いものから新しい順(Tweet IDの昇順)に表示されるため、
+        #  最終的に、取得した結果の内の最新のTweet IDが格納され、
+        #  次はこのID以降のTweetが取得される
+        since_id=status.id
       end
-      
-      @tweets.push(tweet)
-      
-      # 取得したTweet idをsince_idに格納
-      # ※古いものから新しい順(Tweet IDの昇順)に表示されるため、
-      #  最終的に、取得した結果の内の最新のTweet IDが格納され、
-      #  次はこのID以降のTweetが取得される
-      since_id=status.id
-    end
 
       # 検索ワードで Tweet を取得できなかった場合の例外処理
     rescue Twitter::Error::ClientError
