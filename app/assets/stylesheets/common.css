@@ -1,9 +1,13 @@
   body{
     position: relative;
     margin: 0 auto;
-    width:800px;
+    width:/*800px*/;
     box-shadow: 5px 0px 5px rgba(0,0,0,.6), -5px 0px 5px rgba(0,0,0,.6);
-    font-family : Meiryo;
+    font-family:Meiryo;
+    -webkit-background-size: auto 100%;
+    background-size: auto 100% ;
+    background-position: center top;
+    background-image: url('bg_cat.jpg');
   }
 
   header{
