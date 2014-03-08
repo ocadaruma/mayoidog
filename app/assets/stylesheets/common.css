@@ -1,17 +1,25 @@
   body{
     position: relative;
-    width:100%;
+    margin: 0 auto;
+    width:800px;
+    box-shadow: 5px 0px 5px rgba(0,0,0,.6), -5px 0px 5px rgba(0,0,0,.6);
   }
 
   header{
     position:fixed;
     top:0px;
-    left:0px;
-    width: 100%;
+    left:50%;
+    width: 800px;
     height: 100px;
     background-color: #ffc740;
+    -webkit-transform: translateX(-50%);
+       -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%)
+         -o-transform: translateX(-50%);
+            transform: translateX(-50%);
     z-index: 1;
   }
+
   .logo{
     position: absolute;
     top: 0;
@@ -99,8 +107,9 @@
     background-position: 106% bottom;
     background-image: url('face_happy.png');
   }
-  .tweetList li p{
-    padding: 8px;
+  .tweetList li article{
+    position: relative;
+    /*padding: 8px;*/
     background-color: #fff;
     border: 4px #000 solid;
     -webkit-box-sizing:border-box;
@@ -108,15 +117,43 @@
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6) inset;
   }
 
-  .tweetList li.sad p,
-  .tweetList li:nth-child(odd) p{
+  .tweetList li.sad article,
+  .tweetList li:nth-child(odd) article{
     border-radius: 16px 16px 16px 0px;
     border-color: #01939a
   }
-  .tweetList li.happy p,
-  .tweetList li:nth-child(even) p{
+  .tweetList li.happy article,
+  .tweetList li:nth-child(even) article{
     border-radius: 16px 16px 0px 16px;
     border-color: #ff9c00
+  }
+
+  .tweetList li article h1{
+    padding: 8px 8px 0px 71px;
+    background-repeat: no-repeat;
+    height: 54px;
+    background-position: 8px 8px;
+  }
+  .tweetList li:nth-child(odd) article h1{
+    background-color: #01939a;
+  }
+  .tweetList li:nth-child(even) article h1{
+    background-color: #ff9c00;
+  }
+
+  .tweetList li article .tweet{
+    padding: 0px 8px;
+  }
+
+  .tweetList li article h1{
+    position: relative;
+  }
+  .tweetList li article h1 .day{
+    padding: 8px 8px;
+    display: inline-block;
+    position: absolute;
+    bottom:0;
+    right:0;
   }
 
   .rightContent{
