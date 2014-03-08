@@ -56,8 +56,8 @@ class DogSearchController < ApplicationController
         end
 
         unless status.geo.nil?
-          tweet.latitude = status.geo.coordinate[0] # 緯度
-          tweet.longitude = status.geo.coorginate[1] # 経度
+          tweet.latitude = status.geo.coordinates[0] # 緯度
+          tweet.longitude = status.geo.coordinates[1] # 経度
         end
 
         @tweets.unshift(tweet)
