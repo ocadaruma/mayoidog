@@ -16,13 +16,13 @@ class DogSearchController < ApplicationController
       :oauth_token => "191064360-8WEJwdhrClgUKfDCFJRxzHbDUvbrttEbqz6c6IRK",
       :oauth_token_secret => "7wyxc71ZXJY2dhG7jkZMfZm8x6212HXwVGsls6QsevPSr"
     )
-  
+
     # 変数の初期化
     since_id = 0
     counter = 0
-    
+
     @tweets = Array.new
-    
+
     begin
       # 引数で受け取ったワードを元に、検索結果を取得し、古いものから順に並び替え
       # ※最初はsince_id=0であるため、tweet ID 0以降のTweetから最新のもの上位100件を取得
@@ -34,7 +34,7 @@ class DogSearchController < ApplicationController
       tweet = Tweet.new
       tweet.user = status.from_user
       tweet.tweet = status.text
-      
+
       unless status.geo.nil?
         tweet.latitude = status.geo.coordinate[0] # 緯度
         tweet.longitude = status.geo.coorginate[1] # 経度
