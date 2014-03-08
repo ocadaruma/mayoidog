@@ -1,31 +1,28 @@
 # coding: utf-8
 
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>User</th>
-      <th>Tweet</th>
-      <th>Time</th>
-      <th>Map</th>
-    </tr>
-  </thead>
+<header>
+  <h1 class="logo">迷いDog迷いCat</h1>
+  <div class="searchWin">
+    <form>
+    <a href="">検索</a>
+    <input type="text" name="" value="" placeholder="東京　雑種">
+    </form>
+  </div>
+</header>
 
-  <tbody>
-    <% @tweets.each do |tweet| %>
-      <tr>
-        <td><img src="<%= tweet.image_url %>" /><td>
-        <td><%= tweet.user %></td>
-        <td><%= tweet.tweet %></td>
-        <td><%= tweet.time %></td>
-        <% if tweet.latitude.nil? %>
-          <td></td>
-        <% else %>
-          <td><a href="https://maps.google.com/maps?q=<%= tweet.latitude %>,<%= tweet.longitude %>">Map</td>
+<div id="contents">
+  <div class="leftContent">
+    <section>
+      <ol class="tweetList">
+        <% @tweets.each do |tweet| %>
+          <li>
+            <p><%= tweet.tweet %></p>
+          </li>
         <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+      </ol>
+    </section>
+  </div><!--
+--><div class="rightContent">
+    <!-- ここに地図を入れたい -->
+  </div>
+</div>

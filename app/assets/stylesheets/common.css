@@ -1,0 +1,84 @@
+	body{
+		position: relative;
+		width:100%;
+	}
+
+	header{
+		width: 100%;
+		height: 100px;
+		background-color: #ffc740;
+	}
+	.logo{
+		position: absolute;
+		top: 0;
+		left:0;
+		width: 344px;
+		height: 100px;
+		background-image: url("/assets/logo.png");
+		color: #ffc740;
+	}
+
+	.searchWin{
+		position: absolute;
+		top: 0;
+		right:0;
+		padding: 20px 20px 0 0;
+		width: 344px;
+		height: 100px;
+	}
+
+
+	#contents{
+		position: relative;
+		display: table;
+		table-layout: fixed;
+		width: 100%;
+		min-height:800px;
+	}
+
+	.leftContent,
+	.rightContent{
+		display: table-cell;
+		width: 50%;
+		min-height: 500px;
+		height: 100%;	
+
+		background-color: #ffe072;
+	}
+	.leftContent{
+	}
+
+	.tweetList{
+
+	}
+	.tweetList li{
+		padding: 30px 60px 0px;
+	}
+
+	.tweetList li.sad,
+	.tweetList li.happy{
+		background-repeat: no-repeat;
+	}
+
+	.tweetList li.sad{
+		background-position: -6% bottom;
+		background-image: url("/assets/face_sad.png");
+	}
+	.tweetList li.happy{
+		background-position: 106% bottom;
+		background-image: url("/assets/face_happy.png");
+	}
+	.tweetList li p{
+		padding: 8px;
+		border-radius: 16px;
+		background-color: #fff;
+		border: 4px #000 solid;
+		-webkit-box-sizing:border-box;
+	}
+
+	.tweetList li.sad p{border-color: #01939a}
+	.tweetList li.happy p{border-color: #ff9c00}
+
+	.rightContent{
+		background-color: #fff;
+	}
