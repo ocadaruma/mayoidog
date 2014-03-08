@@ -3,6 +3,7 @@
     margin: 0 auto;
     width:800px;
     box-shadow: 5px 0px 5px rgba(0,0,0,.6), -5px 0px 5px rgba(0,0,0,.6);
+    font-family : Meiryo;
   }
 
   header{
@@ -129,6 +130,7 @@
   }
 
   .tweetList li article h1{
+    color : white;
     padding: 8px 8px 0px 71px;
     background-repeat: no-repeat;
     height: 54px;
@@ -142,7 +144,7 @@
   }
 
   .tweetList li article .tweet{
-    padding: 0px 8px;
+    padding: 8px 12px;
   }
 
   .tweetList li article h1{
