@@ -4,9 +4,13 @@
   }
 
   header{
+    position:fixed;
+    top:0px;
+    left:0px;
     width: 100%;
     height: 100px;
     background-color: #ffc740;
+    z-index: 1;
   }
   .logo{
     position: absolute;
@@ -21,63 +25,99 @@
   .searchWin{
     position: absolute;
     top: 0;
-    right:0;
-    padding: 20px 20px 0 0;
-    width: 344px;
-    height: 100px;
+    right: 0;
+    padding: 25px 20px 0 0;
+    width: 545px;
+    height: 100%;
+    -webkit-box-sizing: border-box;
   }
+  .searchWin form{
+    display: table;
+    table-layout: fixed;
+    width: 525px;
+  }
+  .searchWin a{
+    display: table-cell;
+    padding: 10px;
+    width: 80px;
+    height: 20px;
+    background-color: #A67500;
+    color: #FFF;
+    text-decoration: none;
+    text-align: center;
+    line-height: 1.2em;
+    border-radius: 10px 0px 0px 10px;
 
+  }
+  .searchWin input{
+    display: table-cell;
+    padding: 10px;
+    width: 425px;
+    -webkit-box-sizing: border-box;
+    border-radius: 0px 10px 10px 0px;
+  }
 
   #contents{
     position: relative;
+    padding: 100px 0 0;
     display: table;
     table-layout: fixed;
     width: 100%;
-    min-height:800px;
   }
 
   .leftContent,
   .rightContent{
-    display: table-cell;
+    /*display: table-cell;*/
     width: 50%;
-    min-height: 500px;
-    height: 100%;  
-
     background-color: #ffe072;
   }
   .leftContent{
+    margin: 0 auto;
+    width: auto;
+    max-width: 800px;
+  }
+  .rightContent{
+    display: none;
   }
 
   .tweetList{
-
+    height: 800px;  
+    overflow: scroll;
   }
   .tweetList li{
     padding: 30px 60px 0px;
-  }
-
-  .tweetList li.sad,
-  .tweetList li.happy{
     background-repeat: no-repeat;
   }
 
+  .tweetList li:nth-child(odd),
   .tweetList li.sad{
     background-position: -6% bottom;
     background-image: url('face_sad.png');
   }
+  .tweetList li:nth-child(even),
   .tweetList li.happy{
     background-position: 106% bottom;
     background-image: url('face_happy.png');
   }
   .tweetList li p{
     padding: 8px;
-    border-radius: 16px;
     background-color: #fff;
     border: 4px #000 solid;
     -webkit-box-sizing:border-box;
+    -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6) inset;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6) inset;
   }
 
-  .tweetList li.sad p{border-color: #01939a}
-  .tweetList li.happy p{border-color: #ff9c00}
+  .tweetList li.sad p,
+  .tweetList li:nth-child(odd) p{
+    border-radius: 16px 16px 16px 0px;
+    border-color: #01939a
+  }
+  .tweetList li.happy p,
+  .tweetList li:nth-child(even) p{
+    border-radius: 16px 16px 0px 16px;
+    border-color: #ff9c00
+  }
 
   .rightContent{
     background-color: #fff;
