@@ -50,3 +50,6 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+
+gem 'twitter', '4.6.2'

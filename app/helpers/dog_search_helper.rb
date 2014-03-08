@@ -1,0 +1,2 @@
+module DogSearchHelper
+end

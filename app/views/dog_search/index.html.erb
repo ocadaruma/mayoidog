@@ -1,0 +1,21 @@
+# coding: utf-8
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>tweet</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tweets.each do |tweet| %>
+      <tr>
+        <td><%= tweet.user %></td>
+        <td><%= tweet.tweet %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
